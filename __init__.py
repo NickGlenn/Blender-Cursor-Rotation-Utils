@@ -1,8 +1,8 @@
 import bpy
 from bpy.types import UILayout, VIEW3D_MT_snap, VIEW3D_MT_object_context_menu
 
-from .op_item_to_cursor import SnapItemToCursor
-from .op_cursor_to_item import SnapCursorToItem
+from .op_rotate_item_to_cursor import RotateItemToCursor
+from .op_rotate_cursor_to_item import RotateCursorToWorld, RotateCursorToItem
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@ from .op_cursor_to_item import SnapCursorToItem
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 bl_info = {
-    "name": "Smart Cursor",
+    "name": "Cursor Rotation",
     "author": "Nick Glenn",
-    "description": "Small, but powerful cursor utility for Blender",
+    "description": "Small, but useful cursor utility for Blender",
     "version": (2020, 1, 0),
     "blender": (2, 80, 0),
     "url": "https://github.com/nickglenn/blender-magic-cursor",
@@ -32,16 +32,17 @@ bl_info = {
 
 
 classes = (
-    SnapCursorToItem,
-    SnapItemToCursor,
+    RotateItemToCursor,
+    RotateCursorToWorld,
+    RotateCursorToItem,
 )
 
 
 def menu(self, context):
     layout: UILayout = self.layout
     layout.separator()
-    layout.operator(SnapCursorToItem.bl_idname, text="(Smart) Cursor to Selected")
-    layout.operator(SnapItemToCursor.bl_idname, text="(Smart) Selected to Cursor")
+    layout.operator(RotateCursorToWorld.bl_idname, text="Orient Cursor to World Origin")
+    layout.operator(RotateCursorToItem.bl_idname, text="Orient Cursor to Selected")
 
 
 def register():
