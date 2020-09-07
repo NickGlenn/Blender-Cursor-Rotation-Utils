@@ -68,7 +68,7 @@ class RotateCursorToItem(Operator):
                 normals = [v.normal for v in verts]
 
             avg_normal = sum(normals, Vector()) / len(normals)
-            final_rotation = avg_normal.to_track_quat("X", "Y").to_euler()
+            final_rotation = avg_normal.to_track_quat("Z", "X").to_euler()
 
         elif context.mode == "EDIT_ARMATURE":
             bones = context.selected_bones
