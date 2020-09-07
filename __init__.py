@@ -23,7 +23,7 @@ bl_info = {
     "description": "Small, but useful cursor utility for Blender",
     "version": (2020, 1, 0),
     "blender": (2, 80, 0),
-    "url": "https://github.com/nickglenn/blender-magic-cursor",
+    "url": "https://github.com/NickGlenn/Blender-Cursor-Rotation-Utils",
     "location": "View3D",
     "support": "COMMUNITY",
     "warning": "",
